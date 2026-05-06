@@ -15,7 +15,7 @@ class Persons extends Request
      */
     const NAME_TABLE = "person";
 
-    public function init()
+    public static function init()
     {
         parent::$nameTable = self::NAME_TABLE;
         parent::$queryInsert = INTSERT_PERSON;
@@ -27,7 +27,7 @@ class Persons extends Request
      * @param float|int $id Identificador único
      */
 
-    public function updateParameter($object, $statement, $id)
+    public static function updateParameter($object, $statement, $id)
     {
         $statement->bindParam(1, $object->name);
         $statement->bindParam(2, $object->lastName);
@@ -35,7 +35,7 @@ class Persons extends Request
         $statement->bindParam(4, $id);
     }
 
-    public function insertParameter($object, $statement)
+    public static function insertParameter($object, $statement)
     {
         $statement->bindParam(1, $object->name);
         $statement->bindParam(2, $object->lastName);

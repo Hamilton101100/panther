@@ -21,7 +21,7 @@ class Users extends Request
      * {@inheritdoc}
      * @see Request::init()
      */
-    public function init()
+    public static function init()
     {
         parent::$nameTable = self::NAME_TABLE;
         parent::$queryInsert = INTSERT_USER;
@@ -33,7 +33,7 @@ class Users extends Request
      * {@inheritdoc}
      * @see Request::insertParameter()
      */
-    public function insertParameter($object, $statement)
+    public static function insertParameter($object, $statement)
     {
         $encryptPassword = UserAction::encrytPassword($object->password);
         $keyApi = UserAction::getKeyAPI();
@@ -49,7 +49,7 @@ class Users extends Request
      * {@inheritdoc}
      * @see Request::updateParameter()
      */
-    public function updateParameter($object, $statement, $id)
+    public static function updateParameter($object, $statement, $id)
     {
         $encryptPassword = UserAction::encrytPassword($object->password);
         $keyApi = UserAction::getKeyAPI();

@@ -16,7 +16,7 @@ class Roles extends Request
      */
     const NAME_TABLE = "j4rol";
 
-    public function init()
+    public static function init()
     {
         parent::$nameTable = self::NAME_TABLE;
         parent::$queryInsert = INTSERT_ROL;
@@ -27,7 +27,7 @@ class Roles extends Request
      * {@inheritDoc}
      * @see Request::updateParameter()
      */
-    public function updateParameter($object, $statement, $id)
+    public static function updateParameter($object, $statement, $id)
     {
         $statement->bindParam(1, $object->name);
         $statement->bindParam(2, $object->description);
@@ -38,7 +38,7 @@ class Roles extends Request
      * {@inheritDoc}
      * @see Request::insertParameter()
      */
-    public function insertParameter($object, $statement)
+    public static function insertParameter($object, $statement)
     {
         $statement->bindParam(1, $object->name);
         $statement->bindParam(2, $object->description);

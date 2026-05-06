@@ -33,7 +33,7 @@ abstract class Request
     /**
      * Función que permite insertar dinamicamente el nombre de la tabla
      */
-    abstract function init();
+    abstract static function init();
 
     /**
      * Inserta los parametros en el statement y realiza
@@ -44,7 +44,7 @@ abstract class Request
      * @param \PDOStatement $statement
      *            Sentencia para ejecutar en base de datos
      */
-    abstract function insertParameter($object, $statement);
+    abstract static function insertParameter($object, $statement);
 
     /**
      * Inserta los parametros en el statement y realiza
@@ -57,7 +57,7 @@ abstract class Request
      * @param float|int $id
      *            Identificador
      */
-    abstract function updateParameter($object, $statement, $id);
+    abstract static function updateParameter($object, $statement, $id);
 
     /**
      * Método que invoca a las funciones tipo get
@@ -130,7 +130,7 @@ abstract class Request
      * @throws ExcepcionApi
      * @return ContentBody
      */
-    private function getRequest($id)
+    private static function getRequest($id)
     {
         try {
             if (empty($id)) {
@@ -166,7 +166,7 @@ abstract class Request
      * @throws ExcepcionApi
      * @return string
      */
-    private function createRequest($object)
+    private static function createRequest($object)
     {
         try {
             $pdo = Connection::getInstance()->getConnection();
@@ -191,7 +191,7 @@ abstract class Request
      * @throws ExcepcionApi Lanza una excepcion si hay un error en la actualización
      * @return int Número de columna actualizada.
      */
-    private function updateRequest($object, $id)
+    private static function updateRequest($object, $id)
     {
         try {
             // Creando consulta UPDATE
@@ -216,7 +216,7 @@ abstract class Request
      * @throws ExcepcionApi Lanza un error si hay problemas en la conexion
      * @return int Numero de filas Afeactadas
      */
-    private function deleteRequest($id)
+    private static function deleteRequest($id)
     {
         try {
 
