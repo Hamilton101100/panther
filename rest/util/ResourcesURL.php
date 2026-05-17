@@ -13,7 +13,7 @@ define("RESOURCES_URL", array(
     'useraction',
     'roles',
     'business',
-    'persons'
+    'persons',
     'tipodocumentos'
 ));
 
