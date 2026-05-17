@@ -29,6 +29,9 @@ require 'querys/core/SegurityQuery.php';
 require 'ctrl/business/Persons.php';
 require 'model/business/Person.php';
 require 'querys/business/BusinessQuery.php';
+require 'ctrl/business/TipoDocumentos.php';
+require 'model/business/TipoDocumento.php';
+require 'querys/business/TipoDocumentoQuery.php';
 
 // Preparar manejo de excepciones
 /**
