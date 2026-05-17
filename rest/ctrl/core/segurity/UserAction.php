@@ -64,7 +64,7 @@ class UserAction implements IRequest
      */
     public static function authenticator()
     {
-        $heads = array_change_key_case(apache_request_headers(), CASE_LOWER)();
+        $heads = array_change_key_case(apache_request_headers(), CASE_LOWER);
         if (isset($heads[AUTHORIZATION])) {
             $keyAPI = $heads[AUTHORIZATION];
 
