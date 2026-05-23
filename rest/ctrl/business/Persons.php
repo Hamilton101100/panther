@@ -27,18 +27,26 @@ class Persons extends Request
      * @param float|int $id Identificador único
      */
 
-    public static function updateParameter($object, $statement, $id)
-    {
-        $statement->bindParam(1, $object->name);
-        $statement->bindParam(2, $object->lastName);
-        $statement->bindParam(3, $object->phone);
-        $statement->bindParam(4, $id);
-    }
+public static function insertParameter($object, $statement)
+{
+    $statement->bindParam(1, $object->name);
+    $statement->bindParam(2, $object->lastName);
+    $statement->bindParam(3, $object->phone);
+    $tipoDoc = isset($object->tipo_documento_id) ? $object->tipo_documento_id : null;
+    $statement->bindParam(4, $tipoDoc);
+    $numDoc = isset($object->numero_documento) ? $object->numero_documento : null;
+    $statement->bindParam(5, $numDoc);
+}
 
-    public static function insertParameter($object, $statement)
-    {
-        $statement->bindParam(1, $object->name);
-        $statement->bindParam(2, $object->lastName);
-        $statement->bindParam(3, $object->phone);
-    }
+public static function updateParameter($object, $statement, $id)
+{
+    $statement->bindParam(1, $object->name);
+    $statement->bindParam(2, $object->lastName);
+    $statement->bindParam(3, $object->phone);
+    $tipoDoc = isset($object->tipo_documento_id) ? $object->tipo_documento_id : null;
+    $statement->bindParam(4, $tipoDoc);
+    $numDoc = isset($object->numero_documento) ? $object->numero_documento : null;
+    $statement->bindParam(5, $numDoc);
+    $statement->bindParam(6, $id);
+}
 }

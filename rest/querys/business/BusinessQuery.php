@@ -9,7 +9,7 @@
 /**
  * Constante de consultas base de datos
  */
-define("INTSERT_PERSON", "INSERT INTO person(name, lastName, phone) VALUES (?,?,?);");
-define("UPDATE_PERSON", "UPDATE person SET name=?, lastName =? , phone=? WHERE id=? ;");
+define("INTSERT_PERSON", "INSERT INTO person(name, lastName, phone, tipo_documento_id, numero_documento) VALUES (?,?,?,?,?);");
+define("UPDATE_PERSON", "UPDATE person SET name=?, lastName=?, phone=?, tipo_documento_id=?, numero_documento=? WHERE id=?;");
 
 ?>
