@@ -32,6 +32,9 @@ require 'querys/business/BusinessQuery.php';
 require 'ctrl/business/TipoDocumentos.php';
 require 'model/business/TipoDocumento.php';
 require 'querys/business/TipoDocumentoQuery.php';
+require 'ctrl/business/Countries.php';
+require 'ctrl/business/States.php';
+require 'ctrl/business/Cities.php';
 
 // Preparar manejo de excepciones
 /**

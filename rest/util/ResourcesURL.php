@@ -14,7 +14,10 @@ define("RESOURCES_URL", array(
     'roles',
     'business',
     'persons',
-    'tipodocumentos'
+    'tipodocumentos',
+    'countries',
+    'states',
+    'cities'
 ));
 
 /**
