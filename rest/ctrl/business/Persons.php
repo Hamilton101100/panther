@@ -36,6 +36,12 @@ public static function insertParameter($object, $statement)
     $statement->bindParam(4, $tipoDoc);
     $numDoc = isset($object->numero_documento) ? $object->numero_documento : null;
     $statement->bindParam(5, $numDoc);
+    $countryId = isset($object->country_id) ? $object->country_id : null;
+    $statement->bindParam(6, $countryId);
+    $stateId = isset($object->state_id) ? $object->state_id : null;
+    $statement->bindParam(7, $stateId);
+    $cityId = isset($object->city_id) ? $object->city_id : null;
+    $statement->bindParam(8, $cityId);
 }
 
 public static function updateParameter($object, $statement, $id)
@@ -47,6 +53,12 @@ public static function updateParameter($object, $statement, $id)
     $statement->bindParam(4, $tipoDoc);
     $numDoc = isset($object->numero_documento) ? $object->numero_documento : null;
     $statement->bindParam(5, $numDoc);
-    $statement->bindParam(6, $id);
+    $countryId = isset($object->country_id) ? $object->country_id : null;
+    $statement->bindParam(6, $countryId);
+    $stateId = isset($object->state_id) ? $object->state_id : null;
+    $statement->bindParam(7, $stateId);
+    $cityId = isset($object->city_id) ? $object->city_id : null;
+    $statement->bindParam(8, $cityId);
+    $statement->bindParam(9, $id);
 }
 }
