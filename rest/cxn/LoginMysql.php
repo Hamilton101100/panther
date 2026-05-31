@@ -7,17 +7,17 @@
 /**
  * Provee las constantes del nombre del host para conectarse a la base de datos
  */
-define("HOST_NAME", "localhost");
+define("HOST_NAME", "sql207.infinityfree.com");
 /**
  * Provee las constantes del nombre de base de datos
  */
-define("DATA_BASE", "panther");
+define("DATA_BASE", "if0_42058316_panther");
 /**
  * Provee las constantes de usuario para conectarse a la base de datos
  */
-define("USER", "root");
+define("USER", "if0_42058316");
 /**
  * Provee las constantes de contraseña para conectarse a la base de datos
  */
-define("PASSWORD", "");
+define("PASSWORD", "GestionUpTc2026");
 ?>
