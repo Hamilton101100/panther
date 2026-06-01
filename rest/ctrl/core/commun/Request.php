@@ -102,13 +102,9 @@ abstract class Request
     {
         UserAction::authenticator();
         $object = \JSONUtil::decodeJSON();
-        $tempo = self::updateRequest($object, $request[0]);
+        self::updateRequest($object, $request[0]);
 
-        if ($tempo > 0) {
-            return $bodyAnswer = new ContentBody(OK, ST200, "sucessful");
-        } else {
-            throw new ExcepcionApi(NO_CONTENT, ST204, "error_notExist");
-        }
+        return new ContentBody(OK, ST200, "sucessful");
     }
 
     /**
@@ -210,7 +206,19 @@ abstract class Request
             // Ejecutar la sentencia
             $statement->execute();
 
-            return $statement->rowCount();
+            $rowCount = $statement->rowCount();
+            if ($rowCount === 0) {
+                $checkQuery = "SELECT id FROM " . self::$nameTable . " WHERE id=?";
+                $checkStatement = Connection::getInstance()->getConnection()->prepare($checkQuery);
+                $checkStatement->bindParam(1, $id, PDO::PARAM_INT);
+                $checkStatement->execute();
+                if ($checkStatement->fetch(PDO::FETCH_ASSOC)) {
+                    return 1;
+                }
+                throw new ExcepcionApi(NO_CONTENT, ST204, "error_notExist");
+            }
+
+            return $rowCount;
         } catch (Exception $e) {
             throw new ExcepcionApi(INTERNAL_SERVER_ERROR, ST500, $e->getMessage());
         }
