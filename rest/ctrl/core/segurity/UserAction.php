@@ -62,22 +62,47 @@ class UserAction implements IRequest
      * @return null o el id del usuario autorizado
      * @throws Exception
      */
-    public static function authenticator()
-    {
-        $heads = array_change_key_case(apache_request_headers(), CASE_LOWER);
-        if (isset($heads[AUTHORIZATION])) {
-            $keyAPI = $heads[AUTHORIZATION];
+public static function authenticator()
+{
+    // Obtiene los headers compatible con InfinityFree (nginx)
+    $headers = [];
 
-            if (UserAction::validateKeyAPI($keyAPI)) {
-                $bodyAnswer = new ContentBody(OK, 403, sucessful);
-                return $bodyAnswer;
-            } else {
-                throw new ExcepcionApi(UNAUTHORIZED, ST401, error_KeyAPI);
+    // Método 1: getallheaders() — alternativa a apache_request_headers()
+    if (function_exists('getallheaders')) {
+        $headers = array_change_key_case(getallheaders(), CASE_LOWER);
+    }
+
+    // Método 2: busca en $_SERVER si no encontró el token
+    if (empty($headers[AUTHORIZATION])) {
+        foreach ($_SERVER as $clave => $valor) {
+            if (substr($clave, 0, 5) === 'HTTP_') {
+                $nombre = strtolower(str_replace('HTTP_', '', $clave));
+                $headers[$nombre] = $valor;
             }
-        } else {
-            throw new ExcepcionApi(BAD_REQUEST, ST400, error_KeyAPI);
         }
     }
+
+    // Método 3: busca Authorization directamente en $_SERVER
+    if (empty($headers[AUTHORIZATION])) {
+        if (isset($_SERVER['HTTP_AUTHORIZATION'])) {
+            $headers[AUTHORIZATION] = $_SERVER['HTTP_AUTHORIZATION'];
+        } elseif (isset($_SERVER['REDIRECT_HTTP_AUTHORIZATION'])) {
+            $headers[AUTHORIZATION] = $_SERVER['REDIRECT_HTTP_AUTHORIZATION'];
+        }
+    }
+
+    if (isset($headers[AUTHORIZATION])) {
+        $keyAPI = $headers[AUTHORIZATION];
+        if (UserAction::validateKeyAPI($keyAPI)) {
+            $bodyAnswer = new ContentBody(OK, 403, sucessful);
+            return $bodyAnswer;
+        } else {
+            throw new ExcepcionApi(UNAUTHORIZED, ST401, error_KeyAPI);
+        }
+    } else {
+        throw new ExcepcionApi(BAD_REQUEST, ST400, error_KeyAPI);
+    }
+}
 
     /**
      * Verifica en base de datos si las credenciales son correctas
