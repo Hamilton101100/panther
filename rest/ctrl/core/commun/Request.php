@@ -156,6 +156,14 @@ abstract class Request
                 throw new ExcepcionApi(NO_CONTENT, ST204, "no_result");
             }
         } catch (Exception $e) {
+            // Log error to file for debugging
+            $logDir = __DIR__ . '/../../../../logs';
+            if (!is_dir($logDir)) {
+                @mkdir($logDir, 0755, true);
+            }
+            $logFile = $logDir . '/error.log';
+            $msg = date('Y-m-d H:i:s') . " - updateRequest error: " . $e->getMessage() . "\n" . $e->getTraceAsString() . "\n\n";
+            @file_put_contents($logFile, $msg, FILE_APPEND);
             throw new ExcepcionApi(INTERNAL_SERVER_ERROR, ST500, $e->getMessage());
         }
     }
