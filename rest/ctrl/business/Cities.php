@@ -10,6 +10,10 @@ class Cities extends Request {
     {
         UserAction::authenticator();
 
+        if (isset($_GET['state_id']) && is_numeric($_GET['state_id'])) {
+            return self::getByStateId($_GET['state_id']);
+        }
+
         if (empty($request[0])) {
             return self::getRequest(null);
         }
