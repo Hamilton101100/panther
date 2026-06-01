@@ -130,7 +130,7 @@ abstract class Request
      * @throws ExcepcionApi
      * @return ContentBody
      */
-    private static function getRequest($id)
+    protected static function getRequest($id)
     {
         try {
             if (empty($id)) {
