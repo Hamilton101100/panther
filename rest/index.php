@@ -1,4 +1,8 @@
 <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 /** * <b>Descripcion:</b> Clase que <br/> Realiza la administración de las peticiones de usuario
  * <b>Caso de Uso:</b> PANTHER-Seguridad <br/> 
  * @author Josué Nicolás Pinzón Villamil <a href = "mailto:jpinzon@j4sysol.com">jpinzon@j4sysol.com</a>

@@ -1,4 +1,4 @@
 <?php
-define("INSERT_MASCOTAS", "INSERT INTO Mascotas (especie, raza) VALUES (?,?)");
-define("UPDATE_MASCOTAS", "UPDATE Mascotas SET especie=?, raza=? WHERE id=?");
+define("INSERT_MASCOTAS", "INSERT INTO mascotas (nombre, raza) VALUES (?,?)");
+define("UPDATE_MASCOTAS", "UPDATE mascotas SET nombre=?, raza=? WHERE id=?");
 ?>
