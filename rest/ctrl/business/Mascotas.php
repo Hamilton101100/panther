@@ -1,5 +1,5 @@
 <?php
-class Mascotas extends Request {
+class mascotas extends Request {
     const NAME_TABLE = "Mascotas";
 
     public static function init() {
