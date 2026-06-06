@@ -1,6 +1,6 @@
 <?php
-class Mascota {
+class MascotaModel {
     public $id;
-    public $nombre;
+    public $especie;
     public $raza;
 }

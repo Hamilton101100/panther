@@ -1,5 +1,5 @@
 <?php
-class Profesiones {
+class ProfesionModel { 
     public $id;
     public $nombre;
 }
