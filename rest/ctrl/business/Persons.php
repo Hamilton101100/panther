@@ -42,6 +42,7 @@ public static function insertParameter($object, $statement)
     $statement->bindParam(7, $stateId);
     $cityId = isset($object->city_id) ? $object->city_id : null;
     $statement->bindParam(8, $cityId);
+    $statement->bindParam(9, $object->email);
 }
 
 public static function updateParameter($object, $statement, $id)
@@ -59,6 +60,7 @@ public static function updateParameter($object, $statement, $id)
     $statement->bindParam(7, $stateId);
     $cityId = isset($object->city_id) ? $object->city_id : null;
     $statement->bindParam(8, $cityId);
-    $statement->bindParam(9, $id);
+    $statement->bindParam(9, $object->email);
+    $statement->bindParam(10, $id);
 }
 }
