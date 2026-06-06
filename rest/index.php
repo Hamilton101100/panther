@@ -35,6 +35,7 @@ require 'querys/business/TipoDocumentoQuery.php';
 require 'ctrl/business/Countries.php';
 require 'ctrl/business/States.php';
 require 'ctrl/business/Cities.php';
+require 'ctrl/business/Mascotas.php';
 
 // Preparar manejo de excepciones
 /**

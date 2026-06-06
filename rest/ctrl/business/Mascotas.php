@@ -17,5 +17,5 @@ class Mascotas extends Request {
     public static function updateParameter($object, $statement, $id) {
         $statement->bindParam(1, $object->nombre);
         $statement->bindParam(2, $object->raza);
-        $statement->bindParam(7, $id);
+        $statement->bindParam(3, $id);
     }
