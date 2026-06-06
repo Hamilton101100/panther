@@ -29,19 +29,18 @@ require 'querys/core/SegurityQuery.php';
 require 'ctrl/business/Persons.php';
 require 'model/business/Person.php';
 require 'querys/business/BusinessQuery.php';
-require 'querys/business/Profesion.php';
-require 'ctrl/business/Profesion.php';
-require 'ctrl/business/Mascotas.php';
-require 'ctrl/business/TipoDocumentos.php';
 require 'model/business/TipoDocumento.php';
 require 'querys/business/TipoDocumentoQuery.php';
+require 'ctrl/business/TipoDocumentos.php';
+require 'model/business/Profesion.php';
+require 'querys/business/Profesion.php';
+require 'ctrl/business/Profesion.php';
+require 'model/business/Mascotas.php';
+require 'querys/business/Mascotas.php';
+require 'ctrl/business/Mascotas.php';
 require 'ctrl/business/Countries.php';
 require 'ctrl/business/States.php';
 require 'ctrl/business/Cities.php';
-require 'model/business/Profesion.php';
-require 'model/business/Mascotas.php';
-require 'querys/business/Mascotas.php';
-require 'querys/business/Profesion.php';
 
 // Preparar manejo de excepciones
 /**
