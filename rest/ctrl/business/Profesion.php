@@ -1,6 +1,6 @@
 <?php
 class Profesion extends Request {
-    const NAME_TABLE = "profesion";
+    const NAME_TABLE = "profesiones";
 
     public static function init() {
         parent::$nameTable   = self::NAME_TABLE;
@@ -17,3 +17,5 @@ class Profesion extends Request {
         $statement->bindParam(2, $id);
     }
 }
+
+class Profesiones extends Profesion {}

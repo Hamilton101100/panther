@@ -17,7 +17,9 @@ define("RESOURCES_URL", array(
     'tipodocumentos',
     'countries',
     'states',
-    'cities'
+    'cities',
+    'profesiones',
+    'mascotas'
 ));
 
 /**
