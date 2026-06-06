@@ -1,5 +1,5 @@
 <?php
-class Mascotas {
+class Mascota {
     public $id;
     public $nombre;
     public $raza;
