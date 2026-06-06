@@ -38,6 +38,10 @@ require 'querys/business/TipoDocumentoQuery.php';
 require 'ctrl/business/Countries.php';
 require 'ctrl/business/States.php';
 require 'ctrl/business/Cities.php';
+require 'model/business/Profesion.php';
+require 'model/business/Mascotas.php';
+require 'querys/business/Mascotas.php';
+require 'querys/business/Profesion.php';
 
 // Preparar manejo de excepciones
 /**

@@ -1,21 +1,22 @@
 <?php
 class Profesion extends Request {
-    const NAME_TABLE = "profesiones";
+    const NAME_TABLE = "Profesion";
 
     public static function init() {
-        parent::$nameTable   = self::NAME_TABLE;
-        parent::$queryInsert = INSERT_PROFESION;
-        parent::$queryUpdate = UPDATE_PROFESION;
+        parent::$nameTable = self::NAME_TABLE;
     }
 
-    public static function insertParameter($object, $statement) {
-        $statement->bindParam(1, $object->nombre);
+    public static function get($request) {
+        UserAction::authenticator();
+        if (empty($request[0])) {
+            return self::getRequest(null);
+        }
+        if (is_numeric($request[0])) {
+            return self::getRequest($request);
+        }
+        throw new ExcepcionApi(BAD_REQUEST, ST400, error_url);
+    }
 
-    }
-    public static function updateParameter($object, $statement, $id) {
-        $statement->bindParam(1, $object->nombre);
-        $statement->bindParam(2, $id);
-    }
+    public static function insertParameter($object, $statement) {}
+    public static function updateParameter($object, $statement, $id) {}
 }
-
-class Profesiones extends Profesion {}
